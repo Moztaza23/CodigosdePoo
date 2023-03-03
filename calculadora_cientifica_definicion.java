@@ -1,20 +1,15 @@
 package unidad2;
-import java.util.Scanner;
-import java.lang.StrictMath;
+import java.util.Scanner;	//Utilidad para poder leer numeros de la consola
+import java.lang.StrictMath;	//Utilidad para hacer operaciones matematicas
 
 public class calculadora_cientifica_definicion {
-	
+	//Atributos globales
 	public int opcion;	//Esto maneja la opcion seleccionada por el usuario
-	public double d_valor_1;
+	public double d_valor_1;	//Valores de algunas operaciones
 	public double d_valor_2;
-	public double d_res;
-	public int i_rep;
+	public double d_res;	//Resultado de algunas operaciones
 	
-	public calculadora_cientifica_definicion()
-	{
-		this.i_rep = 0;
-	}
-	public calculadora_cientifica_definicion(double d_v1, double d_v2, double d_res)
+	public calculadora_cientifica_definicion(double d_v1, double d_v2, double d_res)	//Contructor por parametros
 	{
 		this.d_valor_1 = d_v1;
 		this.d_valor_2 = d_v2;
