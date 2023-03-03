@@ -5,7 +5,21 @@ import java.lang.StrictMath;
 public class calculadora_cientifica_definicion {
 	
 	public int opcion;	//Esto maneja la opcion seleccionada por el usuario
+	public double d_valor_1;
+	public double d_valor_2;
+	public double d_res;
+	public int i_rep;
 	
+	public calculadora_cientifica_definicion()
+	{
+		this.i_rep = 0;
+	}
+	public calculadora_cientifica_definicion(double d_v1, double d_v2, double d_res)
+	{
+		this.d_valor_1 = d_v1;
+		this.d_valor_2 = d_v2;
+		this.d_res = d_res;
+	}
 	public int LeerInt(String mensaje)	//Scanner para numeros enteros
 	{
 		System.out.println(mensaje);
@@ -20,6 +34,33 @@ public class calculadora_cientifica_definicion {
 		double d_n = sc_2.nextDouble();
 		return d_n;
 	}
+	public void Valores()	//Pide el primer y segundo valor
+	{
+		this.d_valor_1 = LeerDouble("Cual es el primer valor");
+		this.d_valor_2 = LeerDouble("Cual es el segundo valor");
+	}
+	public void Impresion()	//Se encarga de imprimir el resultado
+	{
+		System.out.println("El resltado de la operacion es " + this.d_res);
+		
+	}
+	public void Repeticion()	//Te da la opcion de hacer alguna otra operacion
+	{
+		this.i_rep = LeerInt("Presiona 1 si quieres continuar o 0 para salir");
+		
+		if (this.i_rep != 0)
+		{
+			Menu();
+			Opcion();
+			Switches();
+		}
+		else 
+		{
+			System.out.println("Gracias por usar la calculdora");
+		}
+				
+	}
+	
 	
 	public static void Menu()	//Este es solo el menu escrito
 	{
@@ -33,6 +74,7 @@ public class calculadora_cientifica_definicion {
 		System.out.println("7 - Seno");
 		System.out.println("8 - Coseno");
 		System.out.println("9 - Tangente");
+		System.out.println("Presiona la tecla 0 para salir");
 	}
 	public int Opcion() 	//Esto es lo que maneja la opcion seleccionada
 	{
@@ -72,45 +114,43 @@ public class calculadora_cientifica_definicion {
 		case 9:
 			Tan();
 			break;
+		case 0:
+			System.out.println("Has salido del programa");
+			break;
 		default:
 			Menu();
 			Opcion();
 			Switches();
 			break;
 		}
-		
 	}						//A partir de aqui son todas las operacions matematicas que puede hacer el programa
-	public int Suma()
+	public double Suma()
 	{
-		int i_a = LeerInt("Escribe el primer numero de la suma");
-		int i_b = LeerInt("Escribe el segundo numero de la suma");
-		int r = i_a + i_b;
-		System.out.println("El resultado de la suma es " + r);
-		return r;
+		Valores();
+		this.d_res = this.d_valor_1 + this.d_valor_2;
+		Impresion();
+		return this.d_res;
 	}
-	public int Resta()
+	public double Resta()
 	{
-		int i_a = LeerInt("Escribe el primer numero de la resta");
-		int i_b = LeerInt("Escribe el segundo numero de la resta");
-		int i_r = i_a - i_b;
-		System.out.println("El resultado de la resta es " + i_r);
-		return i_r;
+		Valores();
+		this.d_res = this.d_valor_1 - this.d_valor_2;
+		Impresion();
+		return this.d_res;
 	}
-	public int Multiplicacion()
+	public double Multiplicacion()
 	{
-		int i_a = LeerInt("Escribe el primer numero de la multiplicacion");
-		int i_b = LeerInt("Escribe el segundo numero de la multiplicacion");
-		int i_r = i_a * i_b;
-		System.out.println("El resultado de la multiplicacion es " + i_r);
-		return i_r;
+		Valores();
+		this.d_res = this.d_valor_1  * this.d_valor_2;
+		Impresion();
+		return this.d_res;
 	}
-	public int Division()
+	public double Division()
 	{
-		int i_a = LeerInt("Escribe el primer numero de la division");
-		int i_b = LeerInt("Escribe el segundo numero de la division");
-		int i_r = i_a / i_b;
-		System.out.println("El resultado de la division es " + i_r);
-		return i_r;
+		Valores();
+		this.d_res = this.d_valor_1 / this.d_valor_2;
+		Impresion();
+		return this.d_res;	
 	}
 	public int Raiz()
 	{
