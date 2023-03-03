@@ -44,24 +44,7 @@ public class calculadora_cientifica_definicion {
 		System.out.println("El resltado de la operacion es " + this.d_res);
 		
 	}
-	public void Repeticion()	//Te da la opcion de hacer alguna otra operacion
-	{
-		this.i_rep = LeerInt("Presiona 1 si quieres continuar o 0 para salir");
-		
-		if (this.i_rep != 0)
-		{
-			Menu();
-			Opcion();
-			Switches();
-		}
-		else 
-		{
-			System.out.println("Gracias por usar la calculdora");
-		}
-				
-	}
-	
-	
+
 	public static void Menu()	//Este es solo el menu escrito
 	{
 		System.out.println("Elige una opcion para continuar");
